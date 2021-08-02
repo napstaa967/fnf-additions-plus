@@ -53,17 +53,6 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
-			case 'gf-tankmen':
-				// GIRLFRIEND CODE
-				tex = Paths.getSparrowAtlas('gfTankmen','shared',true);
-				frames = tex;
-				animation.addByIndices('sad', 'GF Crying at Gunpoint', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
-				animation.addByIndices('danceLeft', 'GF Dancing at Gunpoint', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				animation.addByIndices('danceRight', 'GF Dancing at Gunpoint', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('danceRight');
 
 			case 'gf-christmas':
 				tex = Paths.getSparrowAtlas('gfChristmas','shared',true);
@@ -137,20 +126,6 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 				playAnim('danceRight');
-			case 'tankman':
-				tex = Paths.getSparrowAtlas('tankmanCaptain','shared',true);
-				frames = tex;
-				animation.addByPrefix('idle', 'Tankman Idle Dance', 24);
-				animation.addByPrefix('singUP', 'Tankman UP note', 24);
-				animation.addByPrefix('singRIGHT', 'Tankman Note Left', 24);
-				animation.addByPrefix('singDOWN', 'Tankman DOWN note', 24);
-				animation.addByPrefix('singLEFT', 'Tankman Right Note', 24);
-				animation.addByPrefix('singUP-alt', 'TANKMAN UGH', 24);
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-				flipX = true;
 			case 'mom':
 				tex = Paths.getSparrowAtlas('Mom_Assets','shared',true);
 				frames = tex;
@@ -487,7 +462,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-tankmen':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
