@@ -24,4 +24,8 @@ fnf additions plus is focused on adding small elements to the game that wouldn't
 
 ![image](https://user-images.githubusercontent.com/57607350/127792742-072abf43-3748-4a99-869a-167b2a7449ca.png)
 ![image](https://user-images.githubusercontent.com/57607350/127792748-52af9804-c6fb-4673-9d0d-2d190495ba39.png)
+
+### New Icons
+
+![image](https://user-images.githubusercontent.com/57607350/127793068-221444dc-2230-4621-8ffc-fa2593dae385.png)
 ![image](https://user-images.githubusercontent.com/57607350/127792756-166a9fdf-01ab-46d5-914e-495a6cc18a3f.png)
