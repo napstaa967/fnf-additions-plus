@@ -201,8 +201,6 @@ class PlayState extends MusicBeatState
 
 	var smokeLeft:FlxSprite;
 	var smokeRight:FlxSprite;
-	var tankWatchtower:FlxSprite;
-	var tankGround:FlxSprite;
 
 	var phillyCityLights:FlxTypedGroup<FlxSprite>;
 	var phillyTrain:FlxSprite;
@@ -516,8 +514,6 @@ class PlayState extends MusicBeatState
 					{
 						stageCheck = 'school';
 					}
-				case 7:
-					stageCheck = 'tank';
 					// i should check if its stage (but this is when none is found in chart anyway)
 			}
 		}
@@ -530,81 +526,6 @@ class PlayState extends MusicBeatState
 		{
 			switch (stageCheck)
 			{
-				case 'tank':
-					{
-						defaultCamZoom = 0.9;
-						curStage = 'tank';
-						var tankSky:FlxSprite = new FlxSprite(-400, -400).loadGraphic(Paths.image('tank/tankSky', 'shared'));
-						tankSky.scrollFactor.set(0, 0);
-
-						var tankClouds:FlxSprite = new FlxSprite(FlxG.random.int(-700, -100), FlxG.random.int(-20, 20)).loadGraphic(Paths.image('tank/tankClouds', 'shared'));
-						tankClouds.scrollFactor.set(.1, .1);
-						tankClouds.active = true;
-						tankClouds.velocity.x = FlxG.random.float(5, 15);
-
-						var tankMountains:FlxSprite = new FlxSprite(-300, -20).loadGraphic(Paths.image('tank/tankMountains', 'shared'));
-						tankMountains.setGraphicSize(Std.int(tankMountains.width * 1.2));
-						tankMountains.scrollFactor.set(0.2, 0.2);
-						tankMountains.updateHitbox();
-
-						var tankBuildings:FlxSprite = new FlxSprite(-200, 0).loadGraphic(Paths.image('tank/tankBuildings', 'shared'));
-						tankBuildings.setGraphicSize(Std.int(tankBuildings.width * 1.1));
-						tankBuildings.scrollFactor.set(0.3, 0.3);
-						tankBuildings.updateHitbox();
-
-						var tankRuins:FlxSprite = new FlxSprite(-200, 0).loadGraphic(Paths.image('tank/tankRuins', 'shared'));
-						tankRuins.setGraphicSize(Std.int(tankRuins.width * 1.1));
-						tankRuins.scrollFactor.set(0.35, 0.35);
-						tankRuins.updateHitbox();
-
-						var leftSmoke = Paths.getSparrowAtlas('tank/smokeLeft', 'shared');
-
-						smokeLeft = new FlxSprite(-200, -100);
-						smokeLeft.frames = leftSmoke;
-						smokeLeft.animation.addByPrefix('idle', 'SmokeBlurLeft');
-						smokeLeft.animation.play('idle');
-						smokeLeft.scrollFactor.set(0.4, 0.4);
-
-						var rightSmoke = Paths.getSparrowAtlas('tank/smokeRight', 'shared');
-
-						smokeRight = new FlxSprite(1100, -100);
-						smokeRight.frames = rightSmoke;
-						smokeRight.animation.addByPrefix('idle', 'SmokeRight');
-						smokeRight.animation.play('idle');
-						smokeRight.scrollFactor.set(0.4, 0.4);
-
-						var watchtower = Paths.getSparrowAtlas('tank/tankWatchtower', 'shared');
-
-						tankWatchtower = new FlxSprite(100, 50);
-						tankWatchtower.frames = watchtower;
-						tankWatchtower.animation.addByPrefix('idle', 'watchtower gradient color');
-						tankWatchtower.animation.play('idle');
-						tankWatchtower.scrollFactor.set(0.5, 0.5);
-
-					//	var rolling = Paths.getSparrowAtlas('tank/tankRolling', 'shared');
-
-					//	tankRolling = new FlxSprite(300, 300);
-					//	tankRolling.frames = rolling;
-					//	tankRolling.animation.addByPrefix('idle', 'BG tank w lighting', 24, true);
-					//	tankRolling.animation.play('idle');
-					//	tankRolling.scrollFactor.set(0.5, 0.5);
-
-						var tankGround:FlxSprite = new FlxSprite(-420, -150).loadGraphic(Paths.image('tank/tankGround', 'shared'));
-						tankGround.setGraphicSize(Std.int(tankGround.width * 1.15));
-						tankGround.updateHitbox();
-
-						add(tankSky);
-						add(tankClouds);
-						add(tankMountains);
-						add(tankBuildings);
-						add(tankRuins);
-						add(smokeLeft);
-						add(smokeRight);
-						add(tankWatchtower);
-					//	add(tankRolling);
-					//	moveTank;
-						add(tankGround);
-					}
 
 				case 'halloween':
 					{
@@ -1027,8 +948,6 @@ class PlayState extends MusicBeatState
 					gfCheck = 'gf-christmas';
 				case 6:
 					gfCheck = 'gf-pixel';
-				case 7:
-					gfCheck = 'gf-tankmen';
 			}
 		}
 		else
@@ -1045,8 +964,6 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
-			case 'gf-tankmen':
-				curGf = 'gf-tankmen';
 			default:
 				curGf = 'gf';
 		}
@@ -1077,8 +994,6 @@ class PlayState extends MusicBeatState
 				dad.y += 130;
 			case 'dad':
 				camPos.x += 400;
-			case 'tankman':
-				dad.y += 180;
 			case 'pico':
 				camPos.x += 600;
 				dad.y += 300;
@@ -1141,12 +1056,6 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
-			case 'tank':
-				gf.y += 10;
-				gf.x -= 30;
-				boyfriend.x += 40;
-				dad.y += 60;
-				dad.x -= 80;
 		}
 
 		if (!PlayStateChangeables.Optimize)
